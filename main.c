@@ -22,14 +22,14 @@ void livro_ler(pLivro livros, int qtde){
          fflush(stdin);
          fgets(livros[i].isbn, 50, stdin);
          fflush(stdin);
-         scanf("%f\n",livros[i].preco);
+         scanf("%f\n",&livros[i].preco);
          scanf("%d\n",&livros[i].score);
          fgets(livros[i].editora, 100, stdin);
          fflush(stdin);
     }
 }
 void livro_exibe(pLivro livros, int qtde){
-     for(int i=1;i<=qtde;i++){
+ return for(int i=1;i<=qtde;i++){
         printf("Livro %d:\n",i);
         printf("Nome: %s\n",livros[i].nome);
         printf("ISBN: %s\n",livros[i].isbn);
