@@ -29,7 +29,7 @@ void livro_ler(pLivro livros, int qtde){
     }
 }
 void livro_exibe(pLivro livros, int qtde){
- return for(int i=1;i<=qtde;i++){
+        for(int i=1;i<=qtde;i++){
         printf("Livro %d:\n",i);
         printf("Nome: %s\n",livros[i].nome);
         printf("ISBN: %s\n",livros[i].isbn);
