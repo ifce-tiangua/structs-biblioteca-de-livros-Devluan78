@@ -8,28 +8,27 @@ typedef struct{
      float preco;
      int score;
      char editora[100];
-}Livro;
+}Livro, *pLivro;
 
-typedef Livro *pLivro;
-
-pLivro livro_aloc(int qtde) {
-    return (pLivro)malloc(qtde * sizeof(Livro));
-}
+pLivro livro_aloc(int qtde){
+    pLivro livros;
+    livros = malloc(qtde * sizeof(Livro));
+    return livros;
+ }
 
 void livro_ler(pLivro livros, int qtde){
     for(int i=1;i<=qtde;i++){
-         fgets(livros[i].nome, 100, stdin);
-         fflush(stdin);
-         fgets(livros[i].isbn, 50, stdin);
-         fflush(stdin);
+         getchar();
+         fgets(livros[i].nome,100,stdin);
+         fgets(livros[i].isbn,50,stdin);
          scanf("%f\n",&livros[i].preco);
          scanf("%d\n",&livros[i].score);
-         fgets(livros[i].editora, 100, stdin);
-         fflush(stdin);
+         getchar();
+         fgets(livros[i].editora,100,stdin);
     }
 }
 void livro_exibe(pLivro livros, int qtde){
-        for(int i=1;i<=qtde;i++){
+     for(int i=1;i<=qtde;i++){
         printf("Livro %d:\n",i);
         printf("Nome: %s\n",livros[i].nome);
         printf("ISBN: %s\n",livros[i].isbn);
@@ -48,21 +47,14 @@ int main(){
   setlocale(LC_ALL,"Portuguese");
 
     int qtde;
+    pLivro livros;
     
     scanf("%d",&qtde);
-    if(qtde == 0){
-     printf("Sem livros");
-    }else{
 
-    pLivro livros = livro_aloc(qtde);
-
+    livros = livro_aloc(qtde);
     livro_ler(livros,qtde);
-
     livro_exibe(livros,qtde);
-
     livro_desaloca(livros);
-    
- }
 
     return 0;
 }
