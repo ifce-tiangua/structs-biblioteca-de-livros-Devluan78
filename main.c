@@ -24,13 +24,13 @@ void limpar_buffer()
 
 void livro_ler(pLivro livros, int qtde){
     for(int i=0;i<qtde;i++){
-        scanf("%[^\n]s ", livros[i].nome);
+        scanf("%[^\n]s", livros[i].nome);
         limpar_buffer();
-        scanf("%[^\n]s ", livros[i].isbn);
+        scanf("%[^\n]s", livros[i].isbn);
         limpar_buffer();
         scanf("%f ", &livros[i].preco);
         scanf("%d ", &livros[i].score);
-        scanf("%[^\n]s ", livros[i].editora);
+        scanf("%[^\n]s", livros[i].editora);
         limpar_buffer();  
     }
 }
@@ -38,7 +38,6 @@ void livro_exibe(pLivro livros, int qtde){
        for (int e = 0; e < qtde; e++)
     {
         printf("Livro %d:\nNome: %s\nISBN: %s\nPreço: R$ %.2f\nScore: %d\nEditora: %s\n",
-               e + 1,
                livros[e].nome,
                livros[e].isbn,
                livros[e].preco,
