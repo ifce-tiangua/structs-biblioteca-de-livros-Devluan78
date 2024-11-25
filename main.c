@@ -35,24 +35,25 @@ void livro_ler(pLivro livros, int qtde){
     }
 }
 void livro_exibe(pLivro livros, int qtde){
-       for (int e = 0; e < qtde; e++)
-    {
-        printf("Livro %d:\nNome: %s\nISBN: %s\nPreço: R$ %.2f\nScore: %d\nEditora: %s\n",
-               e+1,
-               livros[e].nome,
-               livros[e].isbn,
-               livros[e].preco,
-               livros[e].score,
-               livros[e].editora);
-            printf("\n");
-    }
+    setlocale(LC_ALL, "pt_BR.UTF-8");
+    for(int i = 0; i < qtde; i++){
+        printf("Livro %d:\n", i+1);
+        printf("Nome: %s", livros[i].nome);
+        printf("ISBN: %s", livros[i].isbn);
+        printf("Preço: R$ %.2f\n", livros[i].preco);
+        printf("Score: %d\n", livros[i].score);
+        printf("Editora: %s\n", livros[i].editora);
+        printf("\n"); 
+    } 
+
+}
+
 }
 void livro_desaloca(pLivro livros){
      free(livros);
 }
 
 int main(){
-  setlocale(LC_ALL,"Portuguese");
 
     int qtde;
     scanf("%d",&qtde);
