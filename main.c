@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <locale.h>
 
 typedef struct{
@@ -10,25 +11,29 @@ typedef struct{
      char editora[100];
 }Livro, *pLivro;
 
-pLivro* livro_aloc(int qtde){
-    pLivro livros =(pLivro) malloc(qtde * sizeof(pLivro));
+pLivro livro_aloc(int qtde){
+    pLivro livros =(pLivro) malloc(qtde * sizeof(Livro));
     return livros;
  }
+void limpar_buffer()
+{
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF) { }
+}
 
-void livro_ler(pLivro* livros, int qtde){
+void livro_ler(pLivro livros, int qtde){
     for(int i=1;i<=qtde;i++){
-         getchar();
          fgets(livros[i].nome,100,stdin);
-         getchar();
+         limpar_buffer();
          fgets(livros[i].isbn,50,stdin);
-         getchar();
+         limpar_buffer();
          scanf("%f\n",&livros[i].preco);
          scanf("%d\n",&livros[i].score);
-         getchar();
          fgets(livros[i].editora,100,stdin);
+         limpar_buffer();
     }
 }
-void livro_exibe(pLivro* livros, int qtde){
+void livro_exibe(pLivro livros, int qtde){
      for(int i=1;i<=qtde;i++){
         printf("Livro %d:\n",i);
         printf("Nome: %s\n",livros[i].nome);
@@ -40,7 +45,7 @@ void livro_exibe(pLivro* livros, int qtde){
 
      }
 }
-void livro_desaloca(pLivro* livros){
+void livro_desaloca(pLivro livros){
      free(livros);
 }
 
@@ -48,15 +53,18 @@ int main(){
   setlocale(LC_ALL,"Portuguese");
 
     int qtde;
-    pLivro* livros;
+    pLivro livros;
     scanf("%d",&qtde);
 
     if(qtde == 0){
        printf("Sem livros");
     }else{   
       livros = livro_aloc(qtde);
+         
       livro_ler(livros,qtde);
+         
       livro_exibe(livros,qtde);
+         
       livro_desaloca(livros);
     }    
 
