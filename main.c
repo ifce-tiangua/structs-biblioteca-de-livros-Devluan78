@@ -47,8 +47,6 @@ void livro_exibe(pLivro livros, int qtde){
     } 
 
 }
-
-}
 void livro_desaloca(pLivro livros){
      free(livros);
 }
