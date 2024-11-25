@@ -2,13 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include <locale.h>
+#define MAX 100
 
 typedef struct{
-     char nome[100];
-     char isbn[50];
+     char nome[MAX];
+     char isbn[MAX];
      float preco;
      int score;
-     char editora[100];
+     char editora[MAX];
 }Livro, *pLivro;
 
 pLivro livro_aloc(int qtde){
@@ -23,13 +24,13 @@ void limpar_buffer()
 
 void livro_ler(pLivro livros, int qtde){
     for(int i=1;i<=qtde;i++){
-         fgets(livros[i].nome,100,stdin);
+         fgets(livros[i].nome,MAX,stdin);
          limpar_buffer();
-         fgets(livros[i].isbn,50,stdin);
+         fgets(livros[i].isbn,MAX,stdin);
          limpar_buffer();
          scanf("%f\n",&livros[i].preco);
          scanf("%d\n",&livros[i].score);
-         fgets(livros[i].editora,100,stdin);
+         fgets(livros[i].editora,MAX,stdin);
          limpar_buffer();
     }
 }
