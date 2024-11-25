@@ -24,14 +24,14 @@ void limpar_buffer()
 
 void livro_ler(pLivro livros, int qtde){
     for(int i=1;i<=qtde;i++){
-         fgets(livros[i].nome,MAX,stdin);
-         limpar_buffer();
-         fgets(livros[i].isbn,MAX,stdin);
-         limpar_buffer();
-         scanf("%f\n",&livros[i].preco);
-         scanf("%d\n",&livros[i].score);
-         fgets(livros[i].editora,MAX,stdin);
-         limpar_buffer();
+        scanf("%[^\n]s ", livros[i].nome);
+        limpar_buffer();
+        scanf("%[^\n]s ", livros[i].isbn);
+        limpar_buffer();
+        scanf("%f ", &livros[i].preco);
+        scanf("%d ", &livros[i].score);
+        scanf("%[^\n]s ", livros[i].editora);
+        limpar_buffer();  
     }
 }
 void livro_exibe(pLivro livros, int qtde){
