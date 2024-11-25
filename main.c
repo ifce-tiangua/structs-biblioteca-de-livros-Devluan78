@@ -13,7 +13,7 @@ typedef struct{
 }Livro, *pLivro;
 
 pLivro livro_aloc(int qtde){
-    pLivro livros =(pLivro) malloc(qtde * sizeof(Livro));
+    pLivro livros =(pLivro)malloc(qtde * sizeof(Livro));
     return livros;
  }
 void limpar_buffer()
@@ -54,13 +54,12 @@ int main(){
   setlocale(LC_ALL,"Portuguese");
 
     int qtde;
-    pLivro livros;
     scanf("%d",&qtde);
 
     if(qtde == 0){
        printf("Sem livros");
     }else{   
-      livros = livro_aloc(qtde);
+      pLivros livros = livro_aloc(qtde);
          
       livro_ler(livros,qtde);
          
