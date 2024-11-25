@@ -38,6 +38,7 @@ void livro_exibe(pLivro livros, int qtde){
        for (int e = 0; e < qtde; e++)
     {
         printf("Livro %d:\nNome: %s\nISBN: %s\nPreço: R$ %.2f\nScore: %d\nEditora: %s\n",
+               e+1,
                livros[e].nome,
                livros[e].isbn,
                livros[e].preco,
