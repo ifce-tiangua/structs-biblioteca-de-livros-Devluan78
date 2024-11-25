@@ -59,7 +59,7 @@ int main(){
     if(qtde == 0){
        printf("Sem livros");
     }else{   
-      pLivros livros = livro_aloc(qtde);
+      pLivro livros = livro_aloc(qtde);
          
       livro_ler(livros,qtde);
          
