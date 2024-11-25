@@ -4,36 +4,29 @@
 #include <locale.h>
 #define MAX 100
 
-typedef struct{
+struct Livro{
      char nome[MAX];
      char isbn[MAX];
      float preco;
      int score;
      char editora[MAX];
-}Livro, *pLivro;
+};
+typedef struct Livro *pLivro;
 
 pLivro livro_aloc(int qtde){
-    pLivro livros =(pLivro)malloc(qtde * sizeof(Livro));
+    pLivro livros =(pLivro)malloc(qtde * sizeof(struct Livro));
     return livros;
  }
-void limpar_buffer()
-{
-    int c;
-    while ((c = getchar()) != '\n' && c != EOF) { }
-}
 
 void livro_ler(pLivro livros, int qtde)
 {
     for (int i = 0; i < qtde; i++)
     {
-        scanf("%[^\n]s ", livros[i].nome);
-        limpar_buffer();
-        scanf("%[^\n]s ", livros[i].isbn);
-        limpar_buffer();
-        scanf("%f ", &livros[i].preco);
-        scanf("%d ", &livros[i].score);
-        scanf("%[^\n]s ", livros[i].editora);
-        limpar_buffer();
+         scanf(" %[^\n]", livros[i].nome);
+         scanf(" %[^\n]", livros[i].isbn);
+         scanf("%f", &livros[i].preco);
+         scanf("%d", &livros[i].score);
+         scanf(" %[^\n]", livros[i].editora);
     }
 }
 void livro_exibe(pLivro livros, int qtde){
@@ -59,7 +52,8 @@ int main(){
     scanf("%d",&qtde);
 
     if(qtde == 0){
-       printf("Sem livros");
+       printf("Sem livros\n");
+       return 0;
     }else{   
       pLivro livros = livro_aloc(qtde);
          
